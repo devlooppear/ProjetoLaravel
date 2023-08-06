@@ -1,0 +1,19 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    height: 150px;
+    font-size: 1.1em;
+    border-top: 3px solid #11111178;
+    background-image: linear-gradient(
+      #e1e1e1,
+      white
+    );
+    margin-top: 1em;
+  }
+  
+  .footer span {
+    color: #1976d2;
+  }
+  
