@@ -21,7 +21,7 @@ const TarefasHome = () => {
   // Function to fetch all tasks from the API
   const fetchTarefas = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/tarefas');
+      const response = await axios.get('http://localhost/api/tarefas');
       setTarefas(response.data);
     } catch (error) {
       console.error('Error fetching tasks:', error);
@@ -31,7 +31,7 @@ const TarefasHome = () => {
   // Function to fetch all employees from the API
   const fetchFuncionarios = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/funcionarios');
+      const response = await axios.get('http://localhost/api/funcionarios');
       setFuncionarios(response.data);
     } catch (error) {
       console.error('Error fetching employees:', error);
@@ -41,7 +41,7 @@ const TarefasHome = () => {
   // Function to create a new task in the API
   const createTarefa = async () => {
     try {
-      await axios.post('http://localhost:8000/api/tarefas', newTarefa);
+      await axios.post('http://localhost/api/tarefas', newTarefa);
       fetchTarefas(); // Update the list of tasks after creating a new one
       setNewTarefaDialogOpen(false); // Close the dialog
       setNewTarefa({
@@ -62,7 +62,7 @@ const TarefasHome = () => {
   // Function to update an existing task in the API
   const updateTarefa = async (tarefa) => {
     try {
-      await axios.put(`http://localhost:8000/api/tarefas/${tarefa.id}`, tarefa);
+      await axios.put(`http://localhost/api/tarefas/${tarefa.id}`, tarefa);
       setTarefas(tarefas.map((t) => (t.id === tarefa.id ? tarefa : t)));
       setEditDialogOpen(false);
       setEditingTarefa(null);
@@ -78,7 +78,7 @@ const TarefasHome = () => {
   // Function to delete a task in the API
   const deleteTarefa = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/tarefas/${id}`);
+      await axios.delete(`http://localhost/api/tarefas/${id}`);
       setTarefas(tarefas.filter((t) => t.id !== id));
       setDeleteDialogOpen(false);
       setEditingTarefa(null);
