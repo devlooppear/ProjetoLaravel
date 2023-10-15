@@ -27,7 +27,7 @@ const DepartamentosHome = () => {
   // Function to fetch all departments from the API
   const fetchDepartamentos = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/departamentos');
+      const response = await axios.get('http://localhost/api/departamentos');
       setDepartamentos(response.data);
     } catch (error) {
       console.error('Error fetching departments:', error);
@@ -38,7 +38,7 @@ const DepartamentosHome = () => {
   // Function to create a new department in the API
   const createDepartamento = async () => {
     try {
-      await axios.post('http://localhost:8000/api/departamentos', newDepartamento);
+      await axios.post('http://localhost/api/departamentos', newDepartamento);
       fetchDepartamentos(); // Update the list of departments after creating a new one
       setNewDepartamentoDialogOpen(false); // Close the dialog
       setNewDepartamento({ name: '' });
@@ -52,7 +52,7 @@ const DepartamentosHome = () => {
   // Function to update an existing department in the API
   const updateDepartamento = async (departamento) => {
     try {
-      await axios.put(`http://localhost:8000/api/departamentos/${departamento.id}`, departamento);
+      await axios.put(`http://localhost/api/departamentos/${departamento.id}`, departamento);
       setDepartamentos(departamentos.map((d) => (d.id === departamento.id ? departamento : d)));
       setEditDialogOpen(false);
       setEditingDepartamento(null);
@@ -66,7 +66,7 @@ const DepartamentosHome = () => {
   // Function to delete a department in the API
   const deleteDepartamento = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/departamentos/${id}`);
+      await axios.delete(`http://localhost/api/departamentos/${id}`);
       setDepartamentos(departamentos.filter((d) => d.id !== id));
       setDeleteDialogOpen(false);
       setEditingDepartamento(null);

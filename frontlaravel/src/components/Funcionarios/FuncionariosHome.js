@@ -33,7 +33,7 @@ const FuncionariosHome = () => {
   // Function to fetch all employees from the API
   const fetchFuncionarios = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/funcionarios');
+      const response = await axios.get('http://localhost/api/funcionarios');
       setFuncionarios(response.data);
     } catch (error) {
       console.error('Error fetching employees:', error);
@@ -44,7 +44,7 @@ const FuncionariosHome = () => {
   // Function to create a new employee in the API
   const createFuncionario = async () => {
     try {
-      await axios.post('http://localhost:8000/api/funcionarios', newFuncionario);
+      await axios.post('http://localhost/api/funcionarios', newFuncionario);
       fetchFuncionarios(); // Update the list of employees after creating a new one
       setNewFuncionarioDialogOpen(false); // Close the dialog
       setNewFuncionario({
@@ -64,7 +64,7 @@ const FuncionariosHome = () => {
   // Function to update an existing employee in the API
   const updateFuncionario = async (funcionario) => {
     try {
-      await axios.put(`http://localhost:8000/api/funcionarios/${funcionario.id}`, funcionario);
+      await axios.put(`http://localhost/api/funcionarios/${funcionario.id}`, funcionario);
       setFuncionarios(funcionarios.map((f) => (f.id === funcionario.id ? funcionario : f)));
       setEditDialogOpen(false);
       setEditingFuncionario(null);
@@ -78,7 +78,7 @@ const FuncionariosHome = () => {
   // Function to delete an employee in the API
   const deleteFuncionario = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/funcionarios/${id}`);
+      await axios.delete(`http://localhost/api/funcionarios/${id}`);
       setFuncionarios(funcionarios.filter((f) => f.id !== id));
       setDeleteDialogOpen(false);
       setEditingFuncionario(null);
